@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symptoms</title>
-    <?php include("header.php"); ?>
+	<?php
+	    include ('../Master/header.php');
+	?>
     <style>
         h1, h3{
             text-align:center;
@@ -61,6 +63,8 @@
                     mysqli_close($conn);*/
                 ?>-->
 
-    <?php include("footer.php"); ?>
+<?php
+	    include ('../Master/footer.php');
+	?>
 </body>
 </html>

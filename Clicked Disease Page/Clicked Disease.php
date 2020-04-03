@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/Clicked_Disease.css">
+    <link rel="stylesheet" type="text/css" href="CD_CSS/Clicked_Disease.css">
 	<?php
-	//include ('header.php');
+	    //include ('../Master/header.php');
 	?>
 </head>
 
@@ -15,10 +15,10 @@
             <!-- BREAD CRUMBS UPDATE LINKS WHEN READY-->
             <ul>
                 <li class="breadcrumbs-item">
-                    <a href="breeds.php" class="breadcrumbs-link">Home</a>
+                    <a href="../Breeds/breeds.php" class="breadcrumbs-link">Home</a>
                 </li>
                 <li class="breadcrumbs-item">
-                    <a href="symptoms.php" class="breadcrumbs-link">Symptoms</a>
+                    <a href="../Symptoms/symptoms.php" class="breadcrumbs-link">Symptoms</a>
                 </li>
                 <li class="breadcrumbs-item">
                     <a class="breadcrumbs-link breadcrumbs-link--active">Rabies</a>
@@ -29,7 +29,7 @@
                 <div class="gImage">
                     <!-- IMAGE OF CLICKED DISEASE, CURRENTLY JUST A HARDCODED PLACEHOLDER -->
                     <div class="dContainer">
-                        <img class="clicked-image" src="Images/Rabies.jpg" alt="Rabies Image">
+                        <img class="clicked-image" src="CD_Images/Rabies.jpg" alt="Rabies Image">
                         <p>Image by *NAME* from *SOURCE* </p>
                     </div>
                 </div>
@@ -74,6 +74,6 @@
     </div>
 </body>
 	<?php
-	include ('footer.php');
+	    include ('../Master/footer.php');
 	?>
 </html>
