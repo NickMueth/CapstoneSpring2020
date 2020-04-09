@@ -51,12 +51,12 @@
         -->
 </head>
 <body>
-    <div class="page-container">
 
         <nav class="navbar navbar-expand-lg navbar-dark multi-grad">
             <a class="navbar-brand" href="index.php">
                 <img src="img/MyDog_Logo.png" class="brand-img" alt=""/>
             </a>
+            <!--a class="bg-danger nav-item nav-link" href="information.php">INFO</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -72,10 +72,6 @@
                 </ul>
             </div>
         </nav>
-        <div class="page-container">
-        </div>
 
-        
-    </div>
 </body>
 </html>

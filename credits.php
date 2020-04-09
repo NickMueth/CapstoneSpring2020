@@ -38,6 +38,10 @@
 </head>
 <body>
     <h1>Sources & Credits</h1>
+    <a href="https://www.merckvetmanual.com/"></a>
+    <a href="https://www.akc.org/"></a>
+    <a href="https://www.petmd.com/"></a>
+    <a href="http://www.millikenanimalclinic.com/"></a>
     <hr>
 
     <h2 class="heading">Sources</h2>

@@ -58,25 +58,13 @@
             transition: ease-in-out 0.3s, opacity .3s;
         }
     </style>
+
 </head>
 <body>
         <div id="home" class="multi-grad">
             <div class="breeds" id="breeds">
                 <?php
-                    $servername = "localhost";
-                    $user = "root";
-                    $pass = "pineapple";
-                    $db = "capstone";
-
-                    $conn = new mysqli($servername, $user, $pass, $db);
-
-                    if($conn->connect_error){
-                        die($conn->connect_error);
-                        echo '<script type="text/javascript">
-                            var error = "', $conn->connect_error, '";
-                            console.error("CONNECTION FAILED...", error);</script>';
-                    }
-
+                    include("connection.php");
 
                     #SQL
                     $sql_query = "SELECT * FROM breeds ORDER BY Bre_id";
@@ -86,16 +74,19 @@
                     if($result->num_rows>0){
                         
                         while($row = $result->fetch_assoc()){
-                            echo '<div class="breed_container">',                            
+                            echo '<a target="_blank" href="breed.php?breed_id=' . $row["Bre_id"] .'" id="' . $row["Bre_id"].'">',
+                                    '<div class="breed_container">',                            
                                     '<img class="breed" src="..' . $row["image"]. '" alt=""/>',
                                     '<p class="breed_text">' . $row["Bre_name"]. '</p>',
-                                '</div>';
+                                '</div></a>';
                             
                         }
                     } else {
                         echo "ERROR";
                     }
 
+
+                    
                     mysqli_close($conn);
                 ?>
             </div>

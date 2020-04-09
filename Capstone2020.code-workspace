@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 8080,
+		"liveServer.settings.host": "127.0.0.1",
+		"sqltools.connections": [
+			{
+				"database": "capstone",
+				"dialect": "MySQL",
+				"isActive": false,
+				"isConnected": false,
+				"name": "conn_sql_capstone",
+				"password": "pineapple",
+				"port": 3306,
+				"server": "localhost",
+				"username": "root"
+			}
+		],
+		"liveServer.settings.multiRootWorkspaceName": "Project2"
+	}
+}
