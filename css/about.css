@@ -2,9 +2,11 @@
   font-size: 20px;
   font-family: 'Bebas Neue';
   --text-primary: #FF6425;
-  --text-secondary: #000000;
+  --text-secondary: #4265ff;
   --bg-primary: linear-gradient(to bottom right, #ffae00, rgb(255, 0, 179));
   --primary: #FF6425;
+  --secondary: #4265ff;
+  --font-secondary: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /*  FONT FAMILY AND FACE
@@ -112,6 +114,7 @@ body {
   width: 100%;
   padding: 0 5vh;
   background-color: lightgray;
+  color: var(--text-secondary);
   text-align: center;
 }
 
