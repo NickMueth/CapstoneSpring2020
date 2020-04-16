@@ -15,17 +15,26 @@
         <div class="Osvaldo">
             <h2> Osvaldo Sanchez </h2>
             <img class="cover-photo" src="About_Images/Paw_BG_Blue.png" alt="Osvaldo Sanchez Cover Photo">
-            <p><br>Short description about who the person is and what they did on this page </p>
+            <p><br>Hello, my name is Osvaldo Sanchez, but most call me Ozzy.  I'm a senior at Southeast Missouri State University and graduating this Spring with a Bachelors Degree in Computer Information Systems.
+            I wish to start as a Junior Developer working with OOP languages, like Java, work my way to Senior Developer, and ultimately work as a Project Manager.
+            My contributions for this website were the initial designs of all pages, the creation of the Clicked Disease Pages and this page you're on right now!
+            I also largely took on the role of organizing the team and working as the team leader.  We sincerely thank you for looking at our project and hope you will reach out to us.
+            <br> My GitHub link: https://github.com/OASanchez?tab=repositories</p>
         </div>
         <div class="Nick">
             <h2> Nick Mueth </h2>
             <img class="cover-photo" src="About_Images/Paw_Bg.png" alt="Nicholas Mueth Cover Photo">
-            <p><br>Short description about who the person is and what they did on this page </p>
-        </div>
+            <p><br>Hello, my name is Nick Mueth. I'm a student at Southeast Missouri State University graduating with a Bachelors degree in Computer Information Systems with a focus on Web Programming. 
+            After I finish school, I am getting hired by a local family-owned convenience store chain called MotoMart, to fill a brand new position in their IT Department. 
+            In our Capstone project I worked mainly on the design of the site, and the backend functionality. 
+            This project was a fun one to work on, I learned a lot about dog health and writing PHP. I hope you enjoy the site and get good use out of it.</p>
         <div class="Josh">
             <h2> Joshua Toth </h2>
-            <img class="cover-photo" src="About_Images/Paw_Bg_White.png" alt="Joshua Toth Cover Photo">
-            <p><br>Short description about who the person is and what they did on this page </p>
+            <img class="cover-photo" src="About_Images/Josh_Cover.png" alt="Joshua Toth Cover Photo">
+            <p><br>Hello my name is Joshua Toth. I am Student at Southeast Missouri State University graduating with a Bachelors degree in Computer Information Systems and Business Administration. 
+            What I want to do in my field is work in business analysis type positions to better serve business on what their data could do for them, or do explain to them what it could possibly mean. 
+            During this project of our final semester here in College I worked mainly with the Database as well as helping to plan out the early stages of the project. 
+            Working with the data architecture is something that really set into motion what I have learned from my time here at Southeast.</p>
         </div>
         <div class="Parfait">
             <h2> Parfait Domagni </h2>
@@ -39,7 +48,7 @@
         <p> www.link.com/information </p>
         <p> www.link.com/information </p>
         <h1> Legal Disclaimer </h1>
-        <h1 class="Disclaimer_Txt"> WE ARE NOT DOCTORS OR ANY OF THAT OTHER GOOD MESHUGGAH </h1>
+        <h1 class="Disclaimer_Txt"> WE ARE NOT DOCTORS [INSERT DISCLAIMER WHEN DRAFTED BY LEGAL PROFESSIONAL (IN PROGRESS)]</h1>
     </div>
 
 
