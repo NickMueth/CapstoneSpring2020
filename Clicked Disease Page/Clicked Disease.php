@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="CD_CSS/Clicked_Disease.css">
 	<?php
-	    //include ('../Master/header.php');
+	    include ('../Master/header.php');
 	?>
 </head>
 
