@@ -8,7 +8,9 @@
     <?php include("../Master/connection.php"); ?>
     <script src="../Master/js/formAttributes.js"></script>
     
+    <!-- This style sheet also does not exist
     <link rel="stylesheet" href="css/symptoms.scss">
+     -->
     <style>
         /* SYMPTOMS COLLAPSIBLE */
         .collapsible_container{

@@ -17,31 +17,30 @@
 
 @font-face {
     font-family: "Bebas Neue";
-    src: url("../BebasNeue/BebasNeue-Regular.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Regular.ttf");
 }
 
 @font-face {
     font-family: "Bebas Neue Bold";
-    src: url("../BebasNeue/BebasNeue-Bold.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face {
     font-family: "Bebas Neue Light";
-    src: url("../BebasNeue/BebasNeue-Light.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Light.ttf");
     font-weight: lighter;
 }
 
 @font-face {
     font-family: "Bebas Neue Book";
-    src: url("../BebasNeue/BebasNeue-Book.ttf");
+    src: url("../../Fonts//BebasNeue/BebasNeue-Book.ttf");
 }
 
 @font-face {
     font-family: "Lucida Bright";
-    src: url("../lucida-bright/LBRITE.TTF")
+    src: url("../../Fonts/Lucida/LucidaBrightRegular.ttf")
 }
-
 
 /* END FONT FAMILY & FACE */
 
@@ -110,7 +109,7 @@ body {
 }
 
 .jumbotron {
-    background-image: url("../img/pups/pup121.jpg");
+    background-image: url("../../Home/pups/pup121.jpg");
     background-position: center;
     background-size: cover;
     background-blend-mode: lighten;
@@ -128,7 +127,7 @@ body {
 }
 
 #heading {
-    background-image: url("../img/pups/pup121.jpg");
+    background-image: url("../../Home/pups/pup121.jpg");
     background-color: rgba(100, 100, 100, 0.5);
     background-position: 50% 65%;
     background-size: cover;
@@ -223,5 +222,3 @@ body {
     text-align: center;
 }
 
-
-/*# sourceMappingURL=main.css.map */

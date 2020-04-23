@@ -14,10 +14,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <!-- Multiple.js -->
-        <link href="Multiple.js-master/multiple.css" rel="stylesheet">
-        <script src="js/multiple.js"></script>
+        <link href="../Master/Multiple.js-master/multiple.css" rel="stylesheet">
+        <script src="../Master/js/multiple.js"></script>
 
-        <link rel="stylesheet" href="Master_CSS/main.css">
+        <link rel="stylesheet" href="../Master/Master_CSS/main.css">
 
         <script>
             /* Code to apply active class tag to current page, not working, needs jslint probably
@@ -54,7 +54,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark multi-grad">
             <a class="navbar-brand" href="../Home/index.php">
-                <img src="Master_Images/MyDog_Logo.png" class="brand-img" alt=""/>
+                <img src="../Master/Master_Images/MyDog_Logo.png" class="brand-img" alt=""/>
             </a>
             <!--a class="bg-danger nav-item nav-link" href="information.php">INFO</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">

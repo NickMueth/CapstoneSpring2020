@@ -9,29 +9,29 @@
 
 @font-face {
     font-family: "Bebas Neue";
-    src: url("../BebasNeue/BebasNeue-Regular.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Regular.ttf");
 }
 
 @font-face {
     font-family: "Bebas Neue Bold";
-    src: url("../BebasNeue/BebasNeue-Bold.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face {
     font-family: "Bebas Neue Light";
-    src: url("../BebasNeue/BebasNeue-Light.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Light.ttf");
     font-weight: lighter;
 }
 
 @font-face {
     font-family: "Bebas Neue Book";
-    src: url("../BebasNeue/BebasNeue-Book.ttf");
+    src: url("../../Fonts/BebasNeue/BebasNeue-Book.ttf");
 }
 
 @font-face {
     font-family: "Lucida Bright";
-    src: url("../lucida-bright/LBRITE.TTF")
+    src: url("../../Fonts/Lucida/LucidaBrightRegular.ttf")
 }
 
 .navbar {

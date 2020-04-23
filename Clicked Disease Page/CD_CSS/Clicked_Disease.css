@@ -1,4 +1,4 @@
-@import url(../../Master/Master_CSS/Main.css);
+@import url(../../Master/Master_CSS/main.css);
 html,
 body {
     margin: 0;
@@ -9,13 +9,13 @@ body {
 /* START OF DEFAULT ELEMENT CHANGES */
 
 h1 {
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue Bold';
     font-size: 80px;
     text-align: center;
 }
 
 h2 {
-    font-familY: 'Bebas Neue';
+    font-familY: 'Bebas Neue Bold';
     font-size: 50px;
     text-align: center;
 }
@@ -141,14 +141,14 @@ h2 {
 
 .dContainer p {
     position: absolute;
-    bottom: 5px;
+    bottom: 3px;
     left: 5px;
     margin: 0;
     background: rgba(83, 83, 83, 0.5);
     font-size: 25px;
     font-family: "Bebas Neue";
     color: white;
-    width: 90%;
+    width: 88%;
     text-align: center;
 }
 

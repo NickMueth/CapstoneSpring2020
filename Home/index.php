@@ -17,7 +17,9 @@
         
         
 
+        <!-- This css doesn't exist 
     <link rel="stylesheet" href="../css/home.css">
+    -->
 </head>
 <body>
     <div class="page-container">
@@ -29,16 +31,16 @@
                 </div>
 
                 <div class="bubbles">
-                    <a id="Bbl-Symptoms" class="bubble" href="symptoms.php">Symptoms</a>
-                    <a id="Bbl-Problems" class="bubble" href="problems.php">Problems</a>
-                    <a id="Bbl-Diseases" class="bubble" href="diseases.php">Diseases</a>
-                    <a id="Bbl-TipsAndTricks" class="bubble" href="tipsandtricks.php">Tips & Tricks</a>
+                    <a id="Bbl-Symptoms" class="bubble" href="../Symptoms/symptoms.php">Symptoms</a>
+                    <a id="Bbl-Diseases" class="bubble" href="../Diseases/diseases.php">Diseases</a>
+                    <a id="Bbl-TipsAndTricks" class="bubble" href="../Tips/tipsandtricks.php">Tips & Tricks</a>
+                    <a id="Bbl-About" class="bubble" href="../About/about.php">About</a>
                 </div>
                 <div id="divider">
                     <a href="#breeds"><span id="arrow-down" class="fas fa-chevron-down"></span></a>
                 </div>
                 <br><br>
-                <?php include("../Breeds/breeds.php"); ?>
+                <?php include("breeds.php"); ?>
             </div>
         </div>
         <?php
