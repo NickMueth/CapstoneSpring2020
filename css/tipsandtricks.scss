@@ -1,0 +1,107 @@
+@import "main";
+
+
+.page-container{
+    min-height:100%;
+    font-family: var(--font-secondary);
+    color:navy;
+    margin:1rem 5%;
+}
+
+#top{
+    display:flex;
+    justify-content: center;
+}
+.header{
+    font-size:1.25rem;
+    font-weight: bold;
+}
+
+/* Carousel */
+
+
+
+/* Articles */
+
+
+
+/* Resource Links */
+.links{
+    list-style-type: none;
+    width:100%;
+    padding:0;
+}
+.resourceLink{
+    margin-bottom: .5rem;
+    height:100px;
+    text-align: left;
+    padding-right:10px;
+}
+.resourceLink>a{
+    float:left;
+    font-size:1rem;   
+}
+.resourceLink>a>img{
+    height:100px;
+    width:100%;
+    float:left;
+    padding-left:0;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+.resourceLink:hover{
+    box-shadow: 0 0 3px lightgrey;
+    border-radius:15px;
+}
+
+/* Videos */
+.embedVideo{
+    height:375px;
+    width:600px;
+}
+
+.thumbnailVideo{
+    height: 75px;
+    width: 140px;
+    margin:0 0.5rem;
+    transition: 0.3s;
+    padding:0;
+    opacity: 0.5;
+    cursor:pointer;
+
+}
+.thumbnailVideo>img{
+    height:75px;
+    width: 140px;
+    object-fit: cover;
+}
+
+.thumbnailVideo:hover{
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.active_thumbnail{
+    transform:scale(1.1);
+    opacity:1;
+}
+
+#lesson1{
+    display:block;
+}
+#lesson2{
+    display:none;
+    
+}
+#lesson3{
+    display:none;
+    
+}
+#lesson4{
+    display:none;
+    
+}
+#lesson5{
+    display:none;
+    
+}
