@@ -17,9 +17,7 @@
         
         
 
-        <!-- This css doesn't exist 
     <link rel="stylesheet" href="../css/home.css">
-    -->
 </head>
 <body>
     <div class="page-container">
