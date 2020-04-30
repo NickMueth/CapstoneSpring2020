@@ -9,17 +9,23 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
+            border-radius:25px;
+            background-color:white;
         }
         .breed_container{
             position:relative;
-            margin:25px;
+            margin:1rem;
             height: 10rem;
             width: 10rem;
             text-align:center;
             vertical-align:middle;
-            
             background-color: var(--primary);
             border-radius:25px;
+            box-shadow: 3px 3px 5px rgba(255, 100, 37, 0.5);
+            transition: ease-in-out 0.3s;
+        }
+        .breed_container:hover{
+            transform: scale(1.1);
         }
         .breed_container:hover .breed{
             filter: blur(4px);
@@ -28,6 +34,7 @@
         }
         .breed_container:hover .breed_text{
             opacity:1;
+            transform: scale(1.1);
         }
         .breed{
 
@@ -36,7 +43,7 @@
             height:inherit;
             border-radius: 25px;
             text-decoration: none;
-            transition: ease-in-out 0.3s, opacity .3s;
+            transition: ease-in-out .3s;
             
         }   
         
