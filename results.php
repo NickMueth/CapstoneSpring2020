@@ -9,14 +9,12 @@
     ?>
     <style>
         body{
-            
+            background-color:white;
         }
         .page-container{
             color:black;
             font-size:.75rem;
             font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin-left: 5vw;
-            margin-right:5vw;
         }
         h1{
             text-align:center;
@@ -27,13 +25,31 @@
         h5{
             font-size:1rem;
         }
-        .results{
-        }
         th{
             font-size:1.5rem;
         }
+        #diseaseCol{
+            width:70%;
+        }
+        .dis{
+            border-radius:15px;
+        }
         .dis>td>a{
-            text-decoration:none;
+            text-decoration:underline;
+        }
+        .dis>td>a:hover{
+            color: rgba(105,105,105,0.5);
+        }
+
+
+        .results{
+            display:flex;
+            justify-content:center;
+            background-color: rgba(66, 101, 255, 0.3);
+            padding:2rem;
+            border-radius:25px;
+            margin:2rem auto;
+            width:75%;
         }
         .results>div>ul>li{
             font-size:1rem;
@@ -45,8 +61,10 @@
             margin-right:auto;
             padding:15px;
             justify-content:center;
-            color:white;
+            color:var(--secondary);
             border-radius:25px;
+            background-color: rgba(66, 101, 255, 0.3);
+
         }
         .weight{
             display:flex;
@@ -55,18 +73,23 @@
         }
         .summary>h5>a{
             font-style:oblique;
-            color:white;
+            color:var(--secondary);
             text-decoration:underline;
         }
         .summary>h5>a:hover{
             font-style:oblique;
-            color:#aaa;
+            color:grey;
             text-decoration:underline;
         }
 
         
-    </style>
 
+        
+    </style>
+    <script>
+        var page_header = document.getElementById("#page_header");
+        page_header.innerText = "Results";
+    </script>
         
 </head>
 
@@ -81,11 +104,16 @@
                 $symptoms = $_POST['symptoms'];
             }
 
+            
+
             $breed_code = $_POST['breed_code'];
             $age = $_POST['age'];
             $weight=$_POST['weight'];
 
-            
+            //FINAL RESULTS ARRAY INIT
+            $results = array();
+
+
             $getBreedInfo = $conn->prepare("SELECT * FROM Breeds WHERE Bre_code = ?");
             $getBreedInfo->bind_param("s", $breed_code);
             $getBreedInfo->execute();
@@ -116,7 +144,14 @@
             $getConnect_BD->bind_param("i", $bre_id);
             $getConnect_BD->execute();
             $connect_bd = $getConnect_BD->get_result();
-
+            if($connect_bd->num_rows>0){
+                $susceptibleDiseases = [];
+                while($row = $connect_bd->fetch_assoc()){
+                    array_push($susceptibleDiseases, $row["dis_name"]);
+                }
+            } 
+            
+            
             
 
             $sym_id_arr = array();
@@ -178,12 +213,23 @@
                 
             }
 
+
+            function isSusceptible($disease){
+                global $susceptibleDiseases;
+                if($susceptibleDiseases!=null){
+                    if(in_array($disease, $susceptibleDiseases)){
+                        return true;
+                    }
+                }
+                
+            }
+
             //FUNCTIONS
             function weightCheck(){
                 //check weight dangers for dogs like dachshunds
                 global $weight, $max_wgt, $min_wgt, $bre_name;
                 if($weight>$max_wgt){
-                    echo '<h3 class="bg-danger" style="color:white; padding:10px; border-radius:10px;">Your dog weighs '.$weight.' lbs! They may be suffering from obesity!<small> - A healthy weight for your dog is between '.$min_wgt. ' and '.$max_wgt.' lbs';
+                    echo '<h3 class="bg-danger" style="color:white; padding:10px; border-radius:10px;">Your dog weighs '.$weight.' lbs! They may be suffering from obesity!<small> - A healthy weight for your dog is between '.$min_wgt. ' and '.$max_wgt.' lbs</small>';
                     if($bre_name=="Dachshund"){
                         echo '<br><strong>YOUR DOG\'S BREED ('.$bre_name.') CAN SUFFER SERIOUS DAMAGE FROM OBESITY! Go visit the vet ASAP!</strong>';
                     }
@@ -193,7 +239,7 @@
                     echo '<h3 class="bg-success" style="color:white; padding:10px; border-radius:10px;">Your dog weighs '.$weight.' lbs! They are a healthy weight, keep it up!</h2>';
                 }
                 else{
-                    echo '<h3 class="bg-warning" style="color:white; padding:10px; border-radius:10px;">Your dog weighs '.$weight.' lbs! They may be underweight!<small> - A healthy weight for your dog is between '.$min_wgt. ' and '.$max_wgt.' lbs</h3>';
+                    echo '<h3 class="bg-warning" style="color:white; padding:10px; border-radius:10px;">Your dog weighs '.$weight.' lbs! They may be underweight!<small> - A healthy weight for your dog is between '.$min_wgt. ' and '.$max_wgt.' lbs</small></h3>';
             
                 }
 
@@ -225,7 +271,7 @@
             }
 
             function VonWillebrandSeverityCheck(){
-                //check if based on breed, dog has a more severe case of vonwillebrand
+                //check if based on breed, dog has a more severe case of von willebrand
                 global $bre_id;
                 //Shetland Sheepdog (27)
                 if($bre_id==27){
@@ -244,138 +290,105 @@
                 }
             }
 
-            function breedSusceptibility(){
-                $diseases = array(null);
-                global $connect_bd;
-                while($row = $connect_bd->fetch_assoc()){
-                    $dis_id=$row["dis_id"];
-                    $dis_name = $row["dis_name"];
-                    $diseases[$dis_id] = $dis_name;
-                }
-                return $diseases;
-            }
-
+            //Check diseases that match symptom list given
             function symptomCheck(){
-                global $symptoms, $sym_data, $diseaseSymptomCount;
+                global $symptoms, $sym_data, $diseaseSymptomCount, $susceptibleDiseases;
                 $symLevel = 0;
                 $i = 0;
-                //IF SYMPTOMS EXIST
-                /*if($symptoms != null){
-                    if(wormCheck()==true){
-                        echo '<p>wormCheck returned true</p>';
-                    }
-                    if(PythiosisCheck() == true){
-                        echo '<p>PythiosisCheck returned true</p>';
-                    }
-                    if(BlastomycosisCheck() == true){
-                        echo '<p>BlastomycosisCheck returned true</p>';
-                    }
-                    //Check for the severity level of Von Willebrand's Disease
-                    switch(VonWillebrandSeverityCheck()){
-                        case 1:
-                            echo '<p>SEVERE LEVEL 1</p>';
-                        case 2:
-                            echo '<p>SEVERE LEVEL 2</p>';
-                        case 3:
-                            echo '<p>SEVERE LEVEL 3</p>';
-
-                    }
-
-                }
-                //ELSE IF SYMPTOMS IS NULL 
-                else {
-                    echo 'Your dog isn\'t experiencing any symptoms.';
-                    if(wormCheck()==true){
-                        echo '<p>wormCheck returned true</p>';
-                    }
-                    if(PythiosisCheck() == true){
-                        echo '<p>PythiosisCheck returned true</p>';
-                    }
-                    if(BlastomycosisCheck() == true){
-                        echo '<p>BlastomycosisCheck returned true</p>';
-                    }
-                    //Check for the severity level of Von Willebrand's Disease
-                    switch(VonWillebrandSeverityCheck()){
-                        case 1:
-                            echo '<p>SEVERE LEVEL 1</p>';
-                        case 2:
-                            echo '<p>SEVERE LEVEL 2</p>';
-                        case 3:
-                            echo '<p>SEVERE LEVEL 3</p>';
-
-                    }
-                }*/
-                echo '<table><tr><th>Disease</th><th>Chances</th></tr>';
-                foreach($sym_data as $ds=>$ct){
-                    #echo "$ds = $ct<br>";
-                    foreach($diseaseSymptomCount as $dis=>$sym_ct){
-                        #echo "$dis = $sym_ct<br>";
-                        if($dis == $ds){
-                            $pct = ($ct/$sym_ct)*75;
-                            displayDiseaseChance($pct, $ds, $ct, $sym_ct);
-                        }
-                    }
-                }
-                echo '</table>';
                 
-                #echo strval($sym_data[1][0]);
+                
+
+
+                //For each symptom send a count
+                // example: user enters 3 symptoms, symptom count = 3
+                foreach($sym_data as $ds=>$ct){
+                    //For each symptom related to a disease, send a count
+                    //  example: Aspergillosis -> 6 symptoms
+                    foreach($diseaseSymptomCount as $dis=>$sym_ct){
+                        //Send both to displayDiseaseChance
+                            //Disease as $ds
+                            //Count of shown symptoms as $ct
+                            //Count of symptoms disease has as $sym_count
+                        if($dis == $ds){
+                            displayDiseaseChance($ds, $ct, $sym_ct);
+                        }
+                        
+                    }
+                }
+                
             }
 
-            function displayDiseaseChance($pct, $disease, $count, $sym_count){
+            function displayDiseaseChance($disease, $count, $sym_count){
+                //global variables
+                global $results;
+                
+                //If dog breed is more susceptible to disease, disease percentage multiplier is 100, otherwise 75.
+                //  Example: if disease = Rocky Mountain Fever && breed = German Shepherd, multiplier is 100
+                if(isSusceptible($disease)==true){
+                    $pct = ($count/$sym_count)*100;
+                } else {
+                    $pct = ($count/$sym_count)*75;
+                }
+
+                /*
+                *
+                Modifiers for disease susceptibility due to age or weight
+                *
+                */
                 if(wormCheck()==true){
+                    //If dogs age is less than 5, then susceptibility to worms is increased.
+                    //  If the current disease being analyzed is a worm type, raise the percentage for it by 10
                     if($disease == 'Heartworm' || $disease == 'Hookworm' || $disease == 'Ringworm' || $disease == 'Tapeworm' || $disease == 'Roundworm' || $disease == 'Pork Roundworm' || $disease == 'Whipworm'){
                         if($pct<90) $pct+=10;
                     }
-                    //echo '<p>wormCheck returned true</p>';
                 }
                 if(PythiosisCheck() == true){
+                    //If dogs age is less than 5, susceptibility to pythiosis is increased.
+                    //  If current disease being analyzed is pythiosis, raise percentage for it by 10
                     if($disease == 'Pythiosis'){
                         if($pct<90) $pct+=10;
                     }
-                   // echo '<p>PythiosisCheck returned true</p>';
                 }
                 if(BlastomycosisCheck() == true){
+                    //If dogs weight average is over 55lbs, they are more susceptible to blastomycosis
+                    //  If current disease being analyzed is blastomycosis, raise percentage for it by 10
                     if($disease == 'Blastomycosis'){
                         if($pct<90) $pct+=10;
                     }
-                   // echo '<p>BlastomycosisCheck returned true</p>';
                 }
+
+                //Modifier for susceptibility to von willebrand's disease
                 //Check for the severity level of Von Willebrand's Disease
-                switch(VonWillebrandSeverityCheck()){
-                    case 1:
-                        if($disease == 'Von Willebrand\'s Disease'){
-                            $pct+=30;
+                if($disease=='Von Willebrand\'s Disease'){
+                    switch(VonWillebrandSeverityCheck()){
+                        case 1:
+                            $pct+=40;
+                            break;
+                        case 2:
+                            $pct = $pct+30;
+                            break;
+                        case 3:
+                            $pct+=20;
+                            break;
+                        case 0:
+                            break;
                         }
-                        //echo '<p>SEVERE LEVEL 1</p>';
-                    case 2:
-                        if($disease == 'Von Willebrand\'s Disease'){
-                            $pct += 20;
-                        }
-                        //echo '<p>SEVERE LEVEL 2</p>';
-                    case 3:
-                        if($disease == 'Von Willebrand\'s Disease'){
-                            $pct+=10;
-                        }
-                        //echo '<p>SEVERE LEVEL 3</p>';
-
                 }
-                if($pct>75){
-                    echo '<tr class="bg-danger dis" style="font-size:1.5rem; border-radius:15px;"><td><a style="color:white;" href="diseases.php#'.$disease.'">'.$disease.'</a></td><td>'.round($pct).'% chance ('.$count.'/'.$sym_count.' symptoms)</td></tr>';
 
-                } elseif ($pct>40) {
-                    echo '<tr class="bg-warning dis" style="font-size:1.25rem; border-radius:15px;"><td><a style="color:white;" href="diseases.php#'.$disease.'">'.$disease.'</a></td><td>'.round($pct).'% chance ('.$count.'/'.$sym_count.' symptoms)</td></tr>';
-
-                } else{
-                    echo '<tr class="dis" style="font-size:1rem; border-radius:15px;"><td><a href="diseases.php#'.$disease.'">'.$disease.'</a></td><td>'.round($pct).'% chance ('.$count.'/'.$sym_count.' symptoms)</td></tr>';
-
+                //If percentage is over 100%, lower it to 100%
+                //Rare chance that percentage reaches over 100%
+                if($pct>100){
+                    $pct = 100;
                 }
+                array_push($results, array($disease, round($pct)));
+                
             }
             //getBreeds();
             //getConnect_DS();
         ?>
 
         <h1>RESULTS</h1>
-        <div class="summary multi-grad">
+        <div class="summary">
             <h2 style="text-align:center">Summary:</h2><br>
             <div  class="bg-info" style="color:white; padding:10px; border-radius:10px; width:100%;margin-bottom:2rem;">
                 <?php
@@ -396,36 +409,64 @@
                 switch(VonWillebrandSeverityCheck()){
                     case 1:
                         echo '<h5 style="padding:10px;">Your dog\'s breed makes them more susceptible to <a href="diseases#Von%20Willebrand\'s%20Disease">Von Willebrand\'s Disease</a>.</h5>';
+                        break;
                     case 2:
                         echo '<h5 style="padding:10px;">Your dog\'s breed makes them more susceptible to <a href="diseases#Von%20Willebrand\'s%20Disease">Von Willebrand\'s Disease</a>.</h5>';
+                        break;
                     case 3:
                         echo '<h5 style="padding:10px;">Your dog\'s breed makes them more susceptible to <a href="diseases#Von%20Willebrand\'s%20Disease">Von Willebrand\'s Disease</a>.</h5>';
+                        break;
+                    case 0:
+                        break;
+
 
                 }
             ?>
         </div>
-        <br><hr><br>
         <div class="results row">
 
-        <div class="col-6">
-        <h3>These are the symptoms your dog is experiencing:</h3>
-        <ul>
-            <?php 
-                foreach($symptoms as $selected){
-                    echo '<li>'.$selected.'</li>';
-            }
-        ?>
-        </ul>
+            <div class="col-6">
+                <h3>These are the symptoms your dog is experiencing:</h3>
+                <ul>
+                    <?php 
+                        foreach($symptoms as $selected){
+                            echo '<li>'.$selected.'</li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+            <div class="col-6">
+                <h3>These are the diseases we think your dog might have:</h3>
+                    <?php
+                        symptomCheck();
+                        uasort($results, function($a, $b){
+                            return $b[1] <=> $a[1];
+                        });
+                        echo '<table><tr><th id="diseaseCol">Disease</th><th id="chanceCol">Chances</th></tr>';
+                        foreach($results as $rows){
+                            
+                            if($rows[1]>=75){
+                                
+                                echo '<tr class="bg-danger dis" style="font-size:1.5rem;"><td><a style="color:white;" href="diseases.php#'.$rows[0].'">'.$rows[0].'</a></td><td>'.$rows[1].'% chance</td></tr>';
+
+                            } elseif ($rows[1]>=50) {
+                                echo '<tr class="bg-warning dis" style="font-size:1.25rem;"><td><a style="color:white;" href="diseases.php#'.$rows[0].'">'.$rows[0].'</a></td><td>'.$rows[1].'% chance</td></tr>';
+
+                            } elseif($rows[1]>=30){
+                                echo '<tr class="dis" style="font-size:1rem;"><td><a href="diseases.php#'.$rows[0].'">'.$rows[0].'</a></td><td>'.$rows[1].'% chance</td></tr>';
+
+                            } elseif($rows[1]>=15){
+                                echo '<tr style="font-size:0.75rem;" class="dis"><td><a href="diseases.php#'.$rows[0].'">'.$rows[0].'</a></td><td>'.$rows[1].'% chance</td></tr>';   
+                                
+                            }else{
+                                echo "<tr><td></td><td></td></tr>";
+                            }
+                        }
+                        echo '</table>';
+
+                    ?>
+            </div>
         </div>
-        <div class="col-6">
-        <h3>These are the diseases we think your dog might have:</h3>
-            <?php
-                symptomCheck();
-            ?>
-        </div>
-        </div>
-        <br>
-        <hr>
     </div>
     <?php include("footer.php");?>
 </body>

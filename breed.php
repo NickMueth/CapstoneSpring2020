@@ -26,7 +26,7 @@
             $description = $row["description"];
         }
 
-        $getConnect_BD = $conn->prepare("SELECT Dis_name FROM connect_bd JOIN diseases on diseases.dis_id = connect_bd.dis_id and Bre_id = ?");
+        $getConnect_BD = $conn->prepare("SELECT Dis_name, connect_bd.Dis_id FROM connect_bd JOIN diseases on diseases.dis_id = connect_bd.dis_id and Bre_id = ?");
         $getConnect_BD->bind_param("i", $breed_id);
         $getConnect_BD->execute();
         $connect_bd = $getConnect_BD->get_result();
@@ -40,13 +40,6 @@
         .page-container{
             margin-left: 10vw;
             margin-right:10vw;
-        }
-
-        #top{
-
-        }
-        #bottom{
-
         }
 
         #image_container{
@@ -91,9 +84,14 @@
 
         .disease_row{
             display:block;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
     </style>
-
+    <script>
+        
+        var symptomLink = document.getElementById("symptLink");
+        symptomLink.href="symptoms.php?breed_id=<?php echo $breed_id; ?>";
+    </script>
     
 </head>
 
@@ -119,7 +117,7 @@
                     <div>
                         <?php
                             if($connect_bd->num_rows > 0){
-                                echo '<hr><h5>'.$name.'s are susceptible to the following diseases:</h5>';
+                                echo '<hr><h5 class="disease_row">'.$name.'s are susceptible to the following diseases:</h5>';
                             }
                         ?>
                         
@@ -132,7 +130,8 @@
                     
                         while($row = $connect_bd->fetch_assoc()){
                             $dis_name = $row["Dis_name"];
-                            echo '<tr><td><a class="disease_row" href="#'.$dis_name.'">'.$dis_name.'</a></td></tr>';
+                            $dis_id = $row["Dis_id"];
+                            echo '<tr><td><a class="disease_row" href="disease.php?disease_id='.$dis_id.'">'.$dis_name.'</a></td></tr>';
                         }
                     ?>
                     </table>
