@@ -38,7 +38,8 @@
         </div>
         <br>
         <div>
-        <p>We are not by any means law students, and we are absolutely NOT veterinarians. This project is merely a compiling of the skills we have learned over the course of our college careers. The information found o</p>
+        <p>This project is purely for educational and demonstration purposes, we are not doctors or licensed veterinary physicians.
+        Please consult the proper care technicians if your dog is suffering from any serious health risks/conditions.</p>
         <p></p>
         <p></p>
         </div>

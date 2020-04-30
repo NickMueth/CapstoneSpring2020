@@ -42,13 +42,6 @@
             margin-right:10vw;
         }
 
-        #top{
-
-        }
-        #bottom{
-
-        }
-
         #image_container{
             position:relative;
             height: 30rem;
@@ -103,7 +96,7 @@
         <br>
         <div class="row" id="top">
             <div class="col-lg-6" id="image_container">
-                <img id="image" src="<?php echo $imgSrc; ?>">
+                <img id="image" src="../<?php echo $imgSrc; ?>">
             </div>
             <div class="col-lg-6">
                 <div class="row" id="divName"><h1 id="name"><?php echo $name; ?></h1></div>

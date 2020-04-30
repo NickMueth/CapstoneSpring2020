@@ -18,7 +18,7 @@
 
     #SQL
     /*
-    $sql_query = "SELECT * FROM breeds ORDER BY Bre_id";
+    $sql_query = "SElLECT * FROM breeds ORDER BY Bre_id";
     $result = $conn->query($sql_query);
 
     $i = 0;

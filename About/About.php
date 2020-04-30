@@ -54,7 +54,7 @@
                 <br>
                 I want to work in a business analysis position to better serve business on what their data could do for them and what it means.
                 <br>
-                <span id="b">My GitHub Link:</span> <a href="https://github.com/OASanchez?tab=repositories" target="_blank"> https://github.com/OASanchez?tab=repositories </a>
+                <span id="b">My GitHub Link:</span> <a href="https://github.com/JcmToth" target="_blank"> https://github.com/JcmToth </a>
             </p>
         </div>
         <div class="Parfait">
@@ -67,9 +67,9 @@
                 <br>
                 <span id="b">Goals:</span>
                 <br>
-                I want to work in a business analysis position to better serve business on what their data could do for them and what it means.
+                Hello, my name is Parfait Domagni.  After graduating in the fall of 2020, I would like to work as a software developer. 
                 <br>
-                <span id="b">My GitHub Link:</span> <a href="https://github.com/OASanchez?tab=repositories" target="_blank"> https://github.com/OASanchez?tab=repositories </a>
+                <span id="b">My GitHub Link:</span> <br><a href="" target="_blank"> In Progress </a>
             </p>
         </div>
     </div>
@@ -77,10 +77,18 @@
     <div class="sources">
         <h1> Information Sources </h1>
         <ul style="list-style-type:none">
-        <li> <a href="https://google.com"> www.link.com/information </a> </li>
-        <li> <a href="https://google.com"> www.link.com/information </a> </li>
-        <li> <a href="https://google.com"> www.link.com/information </a> </li>
-</ul>
+        <li> <a href="https://www.vcahospitals.com"> https://www.vcahospitals.com </a> </li>
+        <li> <a href="https://www.merckvetmanual.com"> https://www.merckvetmanual.com </a> </li>
+        <li> <a href="https://www.wagwalking.com"> https://www.wagwalking.com </a> </li>
+        </ul>
+        <br>
+        <h1> Image Sources </h1>
+        <ul style="list-style-type:none">
+        <li> <a href="https://www.pixabay.com"> https://www.pixabay.com </a> </li>
+        <li> <a href="https://www.pexels.com"> https://www.pexels.com </a> </li>
+        <li> <a href="https://www.unsplash.com"> https://www.unsplash.com </a> </li>
+        <li> <a href="https://www.vcahospitals.com"> https://www.vcahospitals.com </a> </li>
+        </ul>
     </div>
     <h1> Legal Disclaimer </h1>
     <h2 class="Disclaimer_Txt"> This project is purely for educational and demonstration purposes, we are not doctors or licensed veterinary physicians.
