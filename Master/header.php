@@ -20,35 +20,12 @@
         <link rel="stylesheet" href="../Master/Master_CSS/main.css">
 
         <script>
-            /* Code to apply active class tag to current page, not working, needs jslint probably
-            - pretty sure its because the active page is the header in this case lol
-
-            $(document).ready(function (){
-                var url = window.location;
-                $('ul.nav a[href="'+url+'"]').parent().addClass('active');
-                $('.ul.nav a').filter(function(){
-                    return this.href==url;
-                }).parent().addClass('active');
-            });*/
 
             var multiple = new Multiple({
                 selector: '.multi-grad',
                 background: 'linear-gradient(#273463, #8B4256)'
             });
         </script>
-        <!-- <script src="js/gradients.js"></script> -->
-        <!--<link rel="stylesheet" media="screen and (min-width:900px)" href="css/widescreen.css">
-        <link rel="stylesheet" media="screen and (max-width:600px)" href="css/narrowscreen.css">
-
-        
-            Tools used by Nick Mueth:
-                Emmet keybinding
-                Sass & Live SassCompile
-                LiveServer
-                VisualStudioCode
-                Multiple.js
-                FontAwesome
-        -->
 </head>
 <body>
 
@@ -56,7 +33,6 @@
             <a class="navbar-brand" href="../Home/index.php">
                 <img src="../Master/Master_Images/MyDog_Logo.png" class="brand-img" alt=""/>
             </a>
-            <!--a class="bg-danger nav-item nav-link" href="information.php">INFO</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>

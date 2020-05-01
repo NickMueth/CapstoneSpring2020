@@ -131,7 +131,7 @@
                         while($row = $connect_bd->fetch_assoc()){
                             $dis_name = $row["Dis_name"];
                             $dis_id = $row["Dis_id"];
-                            echo '<tr><td><a class="disease_row" href="../Clicked%20Disease%20Page/Clicked%20Disease.php?disease_id='.$dis_id.'">'.$dis_name.'</a></td></tr>';
+                            echo '<tr><td><a class="disease_row" href="../Diseases/Clicked%20Disease.php?disease_id='.$dis_id.'">'.$dis_name.'</a></td></tr>';
                         }
                     ?>
                     </table>

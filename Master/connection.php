@@ -12,30 +12,4 @@
             var error = "', $conn->connect_error, '";
             console.error("CONNECTION FAILED...", error);</script>';
     }
-
-    
-
-
-    #SQL
-    /*
-    $sql_query = "SElLECT * FROM breeds ORDER BY Bre_id";
-    $result = $conn->query($sql_query);
-
-    $i = 0;
-    if($result->num_rows>0){
-        
-        while($row = $result->fetch_assoc()){
-            echo '<div class="breed_container">',                            
-                    '<img class="breed" src="..' . $row["image"]. '" alt=""/>',
-                    '<p class="breed_text">' . $row["Bre_name"]. '</p>',
-                '</div>';
-            
-        }
-    } else {
-        echo "ERROR";
-    }
-    */
-    
-    
-    #mysqli_close($conn);
 ?>

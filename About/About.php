@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="About_CSS/About.css">
+    <link rel="stylesheet" type="text/css" href="About.css">
     <?php
     include('../Master/header.php');
     ?>

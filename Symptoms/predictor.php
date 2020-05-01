@@ -72,6 +72,7 @@
                 </tr>
 
             <?php
+            
             //GET DISEASES AND SYMPTOMS FROM CONNECT_DS
                 $getConnect_DS = $conn->prepare("SELECT Dis_name, Sym_name FROM connect_ds JOIN diseases on diseases.dis_id = connect_ds.dis_id JOIN symptoms on symptoms.sym_id = connect_ds.sym_id");
                 $getConnect_DS->execute();

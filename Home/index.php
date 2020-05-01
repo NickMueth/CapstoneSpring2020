@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!--        
-            Tools used by Nick Mueth:
-                Emmet keybinding
-                Sass & Live SassCompile
-                LiveServer
-                VisualStudioCode
-                Multiple.js
-                WAMPServer
-                FontAwesome
-        -->
         <?php
                 include("../Master/header.php");
         ?>
         
         
 
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../Master/Master_CSS/main.css">
 </head>
 <body>
     <div class="page-container">
