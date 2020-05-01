@@ -1,0 +1,297 @@
+:root {
+  font-size: 20px;
+  font-family: 'Bebas Neue';
+  --text-primary: #FF6425;
+  --text-secondary: #4265ff;
+  --bg-primary: linear-gradient(to bottom right, #ffae00, rgb(255, 0, 179));
+  --primary: rgb(255, 100, 37);
+  --secondary: rgb(66, 101, 255);
+  --font-secondary: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*  FONT FAMILY AND FACE
+        - Bebas Neue
+        - Bebas Neue Bold
+        - Bebas Neue Light
+        - Bebas Neue Book
+*/
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../BebasNeue/BebasNeue-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Bebas Neue Bold";
+  src: url("../BebasNeue/BebasNeue-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Bebas Neue Light";
+  src: url("../BebasNeue/BebasNeue-Light.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Bebas Neue Book";
+  src: url("../BebasNeue/BebasNeue-Book.ttf");
+}
+
+/* END FONT FAMILY & FACE */
+/* BODY */
+body {
+  color: #FF6425;
+  font-family: "Bebas Neue Book";
+  background-color: white;
+  scroll-behavior: smooth;
+}
+
+/* END BODY */
+/*  HORIZONTAL NAVIGATION BAR
+        - navbar
+        - navbar-nav>li
+        - navbar-toggler
+        - brand-img
+*/
+.navbar {
+  padding: 1vh 5vw;
+  font-size: 1.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 5px grey;
+          box-shadow: 5px 5px 5px grey;
+}
+
+.navbar-nav > li {
+  border-right: 1.25px solid rgba(255, 255, 255, 0.5);
+  line-height: 1rem;
+}
+
+.navbar-nav > li:last-child {
+  border-right: 0;
+}
+
+.navbar-toggler {
+  border: 2px solid;
+}
+
+.brand-img {
+  height: 4rem;
+}
+
+/* END NAVIGATION BAR */
+.page-container {
+  position: relative;
+  min-height: 100%;
+}
+
+.multi-grad {
+  background: -webkit-gradient(linear, left top, right bottom, from(#4265ff), to(#270047));
+  background: linear-gradient(to bottom right, #4265ff, #270047);
+  background-attachment: fixed;
+}
+
+.content-wrap {
+  background-color: white;
+  border-bottom: 3px solid #c9c9c9;
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+}
+
+.jumbotron {
+  background-image: url("../img/pups/pup121.jpg");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+  height: 50vh;
+  max-width: 100%;
+}
+
+.jumbotron > h1 {
+  text-align: center;
+  font-size: 10vw;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 0 5vh;
+  background-color: lightgray;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+/* START OF DEFAULT ELEMENT CHANGES */
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* END OF DEFAULT ELEMENT CHANGES */
+/* BREAD CRUMBS STYLING */
+.breadcrumbs-item {
+  display: inline-block;
+  font-family: "Bebas Neue";
+  font-size: 50px;
+}
+
+.breadcrumbs-item:not(:last-of-type)::after {
+  content: '>';
+  margin: 0 5px;
+}
+
+.breadcrumbs-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.breadcrumbs-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs-link--active {
+  color: #000000;
+  font-weight: 500;
+}
+
+/* END OF BREAD CRUMBS */
+/* BACKGROUND STYLING */
+.bg {
+  background: url(../img/Paw_BG.png) repeat center center fixed;
+}
+
+.wbg {
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* END OF BACKGROUND STYLING */
+/* START OF GRID STYLING */
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  font-family: var(--font-secondary);
+  color: black;
+}
+
+.left {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  padding-left: 1rem;
+}
+
+.right {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.gImage {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.gDisease {
+  padding: 0 1.5rem;
+}
+
+.gDisease > h1 {
+  text-align: left;
+  padding-right: 2rem;
+  color: var(--primary);
+}
+
+.gDisease p {
+  font-size: 1rem;
+  text-align: left;
+}
+
+#jumpTo {
+  border-bottom: 1px solid rgba(105, 105, 105, 0.5);
+}
+
+#jumpTo > li {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.gRiskList > h3 {
+  margin: 0 1.5rem;
+  text-align: left;
+}
+
+.gRiskList li {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.gTransmission {
+  padding: 0 1.5rem;
+}
+
+.gTransmission > h2, .gTransmission > p {
+  text-align: left;
+}
+
+.gPrevention {
+  padding: 0 1.5rem;
+}
+
+.gPrevention > h2, .gPrevention > p {
+  text-align: left;
+}
+
+.gTreatment {
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.gTreatment > h2, .gTreatment > p {
+  text-align: left;
+}
+
+/* END OF GRID STYLING */
+/* CLICKED DISEASE IMAGE STYLING */
+.dContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clicked-image {
+  max-width: 30vw;
+}
+
+/* END OF CLICKED DISEASE IMAGE STYLING */
+/* CLICKED DISEASE LIST STYLING FOR TRANS, PREV, AND TREAT */
+.cd-list {
+  font-family: 'Lucida Bright';
+  font-size: 21px;
+  text-align: left;
+}
+/*# sourceMappingURL=disease.css.map */

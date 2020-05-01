@@ -1,0 +1,84 @@
+@import "main";
+
+#home{
+    padding-bottom: 10vh;
+}
+
+#heading{
+    background-image: url("../img/pups/pup121.jpg");
+    background-color: rgba(100, 100, 100, 0.7);
+    background-position: 50% 65%;
+    background-size:cover;
+    background-blend-mode:darken; 
+    display:block;
+    font-family: $font-secondary;
+    padding-top: 5vh;
+    height: 45vh;
+    color:white;
+    text-align:right;
+    
+
+    h1{
+        font-size: 2.5rem;
+        margin-right: 10vw;
+    }
+    h4{
+        font-size: 1.25rem;
+        margin-right: 10vw;
+    }
+}
+
+.bubbles{
+    position: static;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
+    height: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    //align-content: center;
+    justify-content: space-evenly;
+}
+
+.bubble{
+    box-shadow: 1px 1px 5px $secondary;
+    height: 9rem;
+    width: 11.5rem;
+    margin-top: 10pt;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: var(--primary);
+    transition: 0.25s;
+    text-decoration: none;
+    font-size: 2.25rem;
+    color: white;
+    transition: ease-in 0.3s;
+}
+
+.bubble:hover{
+    box-shadow: 1px 1px 15px $primary;
+    transform: scale(1.25);
+    color:white;
+    text-decoration: none;
+}
+
+
+#divider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:3rem;
+    
+}
+#arrow-down{
+    color: $primary;
+    text-shadow: 1px 1px 5px $secondary;
+    transform: scale(1);
+    transition: ease-in 0.3s;
+}
+#arrow-down:hover{   
+    transform: scale(1.25);
+    filter: invert(1);
+}
